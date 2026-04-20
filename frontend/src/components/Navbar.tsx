@@ -1,5 +1,5 @@
 /**
- * Navbar — Top navigation bar with simulation controls
+ * Navbar - Top navigation bar with simulation controls
  */
 import { User, SimulationStatus } from '../types';
 
@@ -43,11 +43,11 @@ export default function Navbar({ user, onLogout, simStatus, onSimStart, onSimSto
             <>
               {simStatus.running ? (
                 <button onClick={onSimStop} className="btn-sim btn-sim-stop">
-                  ⏹ Stop Simulation
+                  Stop Simulation
                 </button>
               ) : (
                 <button onClick={onSimStart} className="btn-sim btn-sim-start">
-                  ▶ Start Simulation
+                  Start Simulation
                 </button>
               )}
               {simStatus.running && (

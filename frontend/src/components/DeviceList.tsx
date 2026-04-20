@@ -1,5 +1,5 @@
 /**
- * Device List — Sidebar showing all fleet vehicles
+ * Device List - Sidebar showing all fleet vehicles
  */
 import { Device, TelemetryData } from '../types';
 
@@ -12,11 +12,37 @@ interface DeviceListProps {
   userRole: string;
 }
 
-const typeIcons: Record<string, string> = {
-  Truck: '🚛',
-  Van: '🚐',
-  Car: '🚗',
-};
+function VehicleIcon({ type }: { type: string }) {
+  const svgProps = {
+    width: 20, height: 20, viewBox: '0 0 24 24', fill: 'none',
+    stroke: 'currentColor', strokeWidth: 1.5,
+    strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const,
+  };
+  if (type === 'Truck') return (
+    <svg {...svgProps}>
+      <rect x="1" y="3" width="15" height="13" rx="1" />
+      <path d="M16 8h4l3 5v5h-7V8z" />
+      <circle cx="5.5" cy="18.5" r="2.5" />
+      <circle cx="18.5" cy="18.5" r="2.5" />
+    </svg>
+  );
+  if (type === 'Van') return (
+    <svg {...svgProps}>
+      <path d="M3 4h14l4 7v5a2 2 0 01-2 2H5a2 2 0 01-2-2V4z" />
+      <circle cx="7.5" cy="18" r="2" />
+      <circle cx="16.5" cy="18" r="2" />
+      <line x1="9.5" y1="18" x2="14.5" y2="18" />
+    </svg>
+  );
+  return (
+    <svg {...svgProps}>
+      <path d="M5 17a2 2 0 01-2-2v-2a1 1 0 01.1-.45L6 7h12l2.9 5.55a1 1 0 01.1.45v2a2 2 0 01-2 2" />
+      <circle cx="7" cy="17" r="2" />
+      <circle cx="17" cy="17" r="2" />
+      <line x1="9" y1="17" x2="15" y2="17" />
+    </svg>
+  );
+}
 
 const statusColors: Record<string, string> = {
   OK: '#66bb6a',
@@ -40,8 +66,8 @@ export default function DeviceList({ devices, latestTelemetry, selectedDeviceId,
         <h2>Fleet Vehicles</h2>
         <div className="fleet-stats">
           <span className="stat" style={{ color: '#66bb6a' }}>{counts.ok} OK</span>
-          <span className="stat" style={{ color: '#ffa726' }}>{counts.warning} ⚠</span>
-          <span className="stat" style={{ color: '#ef5350' }}>{counts.critical} ✕</span>
+          <span className="stat" style={{ color: '#ffa726' }}>{counts.warning} W</span>
+          <span className="stat" style={{ color: '#ef5350' }}>{counts.critical} C</span>
         </div>
       </div>
 
@@ -56,7 +82,9 @@ export default function DeviceList({ devices, latestTelemetry, selectedDeviceId,
               onClick={() => onSelectDevice(device.id)}
             >
               <div className="device-card-header">
-                <span className="device-icon">{typeIcons[device.type] || '🚗'}</span>
+                <span className="device-icon">
+                  <VehicleIcon type={device.type} />
+                </span>
                 <div className="device-info">
                   <span className="device-name">{device.name}</span>
                   <span className="device-vid">{device.vehicle_id}</span>
@@ -91,7 +119,7 @@ export default function DeviceList({ devices, latestTelemetry, selectedDeviceId,
                   onClick={(e) => { e.stopPropagation(); onTriggerFault(device.id); }}
                   title="Inject engine fault for demo"
                 >
-                  ⚡ Inject Fault
+                  Inject Fault
                 </button>
               )}
             </div>

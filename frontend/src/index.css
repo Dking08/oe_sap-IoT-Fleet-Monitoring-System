@@ -1,12 +1,11 @@
 /**
- * IoT Fleet Monitoring System — Premium Dark Theme
- * SAP Fiori-inspired design with deep navy blues and accent orange
+ * IoT Fleet Monitoring System - SAP Fiori-inspired Dark Theme
  * Student: Dastageer - 23053275 | Course: OE - SAP_BTP
  */
 
-/* ═══════════════════════════════════════════════════════════
-   CSS Custom Properties — Design Tokens
-   ═══════════════════════════════════════════════════════════ */
+/* ---------------------------------------------------------------
+   CSS Custom Properties - Design Tokens
+   --------------------------------------------------------------- */
 :root {
   /* Backgrounds */
   --bg-deep: #060e1a;
@@ -27,7 +26,7 @@
   --text-muted: #7b8fa3;
   --text-accent: #e8730e;
 
-  /* Accent — SAP Orange */
+  /* Accent - SAP Orange */
   --accent: #e8730e;
   --accent-light: #ff9800;
   --accent-glow: rgba(232, 115, 14, 0.25);
@@ -42,19 +41,19 @@
   --status-offline: #78909c;
 
   /* Sizing */
-  --navbar-height: 64px;
-  --sidebar-width: 320px;
+  --navbar-height: 56px;
+  --sidebar-width: 300px;
   --radius-sm: 6px;
   --radius-md: 10px;
-  --radius-lg: 16px;
+  --radius-lg: 14px;
 
   /* Transitions */
   --transition: all 0.2s ease;
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* ---------------------------------------------------------------
    Reset & Base
-   ═══════════════════════════════════════════════════════════ */
+   --------------------------------------------------------------- */
 *, *::before, *::after {
   margin: 0; padding: 0; box-sizing: border-box;
 }
@@ -79,9 +78,9 @@ html, body {
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--border-light); }
 
-/* ═══════════════════════════════════════════════════════════
+/* ---------------------------------------------------------------
    Loading Screen
-   ═══════════════════════════════════════════════════════════ */
+   --------------------------------------------------------------- */
 .loading-screen {
   height: 100vh;
   display: flex;
@@ -93,7 +92,7 @@ html, body {
 }
 
 .loading-spinner {
-  width: 40px; height: 40px;
+  width: 36px; height: 36px;
   border: 3px solid var(--border-default);
   border-top-color: var(--accent);
   border-radius: 50%;
@@ -102,9 +101,9 @@ html, body {
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ═══════════════════════════════════════════════════════════
+/* ---------------------------------------------------------------
    Login Page
-   ═══════════════════════════════════════════════════════════ */
+   --------------------------------------------------------------- */
 .login-page {
   height: 100vh;
   display: flex;
@@ -118,40 +117,39 @@ html, body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(232, 115, 14, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 50%, rgba(30, 73, 118, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 50%, rgba(232, 115, 14, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(30, 73, 118, 0.12) 0%, transparent 50%),
     var(--bg-deep);
 }
 
 .login-card {
   position: relative;
-  width: 420px;
-  padding: 40px;
+  width: 400px;
+  padding: 36px;
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(20px);
-  animation: fadeInUp 0.5s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 0.4s ease;
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .login-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .login-logo {
   display: inline-flex;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .login-header h1 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -169,18 +167,20 @@ html, body {
   font-weight: 500;
 }
 
-.login-form { display: flex; flex-direction: column; gap: 16px; }
+.login-form { display: flex; flex-direction: column; gap: 14px; }
 
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 
 .form-group label {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .form-group input {
-  padding: 10px 14px;
+  padding: 10px 12px;
   background: var(--bg-input);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sm);
@@ -197,7 +197,7 @@ html, body {
 }
 
 .login-error {
-  padding: 10px 14px;
+  padding: 10px 12px;
   background: var(--status-critical-bg);
   border: 1px solid var(--status-critical);
   border-radius: var(--radius-sm);
@@ -206,12 +206,12 @@ html, body {
 }
 
 .btn-login {
-  padding: 12px;
+  padding: 11px;
   background: linear-gradient(135deg, var(--accent), var(--accent-light));
   color: white;
   border: none;
   border-radius: var(--radius-sm);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
@@ -223,18 +223,19 @@ html, body {
 .btn-login:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
 .quick-login {
-  margin-top: 24px;
-  padding-top: 24px;
+  margin-top: 20px;
+  padding-top: 20px;
   border-top: 1px solid var(--border-default);
 }
 
 .quick-login-label {
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 600;
 }
 
 .quick-login-buttons {
@@ -244,7 +245,7 @@ html, body {
 
 .btn-quick {
   flex: 1;
-  padding: 10px 8px;
+  padding: 9px 8px;
   background: var(--bg-input);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sm);
@@ -257,7 +258,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .btn-quick:hover { border-color: var(--accent); background: var(--bg-surface-hover); }
@@ -265,11 +266,15 @@ html, body {
 .btn-quick.operator:hover { border-color: #42a5f5; }
 .btn-quick.technician:hover { border-color: #66bb6a; }
 
-.role-icon { font-size: 16px; }
+.role-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
 
-/* ═══════════════════════════════════════════════════════════
+/* ---------------------------------------------------------------
    App Layout
-   ═══════════════════════════════════════════════════════════ */
+   --------------------------------------------------------------- */
 .app {
   height: 100vh;
   display: flex;
@@ -296,21 +301,22 @@ html, body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding: 20px;
-  gap: 20px;
+  padding: 16px;
+  gap: 16px;
   background: var(--bg-deep);
 }
 
 .bottom-panels {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  min-height: 300px;
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* ---------------------------------------------------------------
    Navbar
-   ═══════════════════════════════════════════════════════════ */
+   --------------------------------------------------------------- */
 .navbar {
   height: var(--navbar-height);
   background: var(--bg-primary);
@@ -318,19 +324,20 @@ html, body {
   display: flex;
   align-items: center;
   padding: 0 20px;
-  gap: 20px;
+  gap: 16px;
   z-index: 100;
+  flex-shrink: 0;
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-width: 240px;
+  gap: 10px;
+  min-width: 220px;
 }
 
 .navbar-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.2;
@@ -345,7 +352,7 @@ html, body {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   justify-content: center;
 }
 
@@ -353,9 +360,9 @@ html, body {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  padding: 4px 12px;
+  padding: 4px 10px;
   border-radius: 20px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -372,7 +379,7 @@ html, body {
 }
 
 .status-dot {
-  width: 8px; height: 8px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   background: currentColor;
   animation: pulse 2s ease infinite;
@@ -383,13 +390,13 @@ html, body {
   50% { opacity: 0.4; }
 }
 
-.sim-controls { display: flex; align-items: center; gap: 10px; }
+.sim-controls { display: flex; align-items: center; gap: 8px; }
 
 .btn-sim {
-  padding: 6px 16px;
+  padding: 5px 14px;
   border: 1px solid;
   border-radius: var(--radius-sm);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
@@ -416,16 +423,16 @@ html, body {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--status-ok);
   background: var(--status-ok-bg);
-  padding: 4px 12px;
+  padding: 4px 10px;
   border-radius: 20px;
   font-weight: 500;
 }
 
 .pulse-dot {
-  width: 8px; height: 8px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   background: var(--status-ok);
   animation: pulse 1.5s ease infinite;
@@ -434,7 +441,7 @@ html, body {
 .navbar-user {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .user-info {
@@ -450,8 +457,8 @@ html, body {
 }
 
 .user-role {
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -461,7 +468,7 @@ html, body {
 .role-technician { color: #66bb6a; }
 
 .btn-logout {
-  padding: 6px 14px;
+  padding: 5px 12px;
   background: transparent;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sm);
@@ -478,37 +485,37 @@ html, body {
   background: var(--status-critical-bg);
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* ---------------------------------------------------------------
    Device List (Sidebar)
-   ═══════════════════════════════════════════════════════════ */
-.device-list { padding: 16px; }
+   --------------------------------------------------------------- */
+.device-list { padding: 14px; }
 
 .device-list-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--border-default);
 }
 
 .device-list-header h2 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .fleet-stats {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   font-size: 11px;
   font-weight: 700;
 }
 
-.device-cards { display: flex; flex-direction: column; gap: 10px; }
+.device-cards { display: flex; flex-direction: column; gap: 8px; }
 
 .device-card {
-  padding: 14px;
+  padding: 12px;
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
@@ -542,13 +549,12 @@ html, body {
 .device-card:hover {
   border-color: var(--border-light);
   background: var(--bg-surface-hover);
-  transform: translateX(2px);
 }
 
 .device-card.selected {
   border-color: var(--accent);
   background: var(--bg-surface-hover);
-  box-shadow: 0 0 0 1px var(--accent-glow), 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 1px var(--accent-glow);
 }
 
 .device-card-header {
@@ -557,15 +563,26 @@ html, body {
   gap: 10px;
 }
 
-.device-icon { font-size: 24px; }
+.device-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+}
 
-.device-info { flex: 1; }
+.device-info { flex: 1; min-width: 0; }
 
 .device-name {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .device-vid {
@@ -575,7 +592,7 @@ html, body {
 }
 
 .device-status-dot {
-  width: 10px; height: 10px;
+  width: 8px; height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -583,8 +600,8 @@ html, body {
 .device-card-metrics {
   display: flex;
   gap: 12px;
-  margin-top: 10px;
-  padding-top: 10px;
+  margin-top: 8px;
+  padding-top: 8px;
   border-top: 1px solid var(--border-default);
 }
 
@@ -600,7 +617,7 @@ html, body {
 }
 
 .mini-value {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -626,15 +643,15 @@ html, body {
   border-style: solid;
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* ---------------------------------------------------------------
    Telemetry Panel
-   ═══════════════════════════════════════════════════════════ */
+   --------------------------------------------------------------- */
 .telemetry-panel {
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
-  padding: 24px;
-  min-height: 200px;
+  padding: 20px;
+  min-height: 180px;
 }
 
 .telemetry-panel.empty-panel {
@@ -648,10 +665,15 @@ html, body {
   color: var(--text-muted);
 }
 
-.empty-icon { font-size: 48px; display: block; margin-bottom: 12px; }
+.empty-state-icon {
+  display: block;
+  margin: 0 auto 12px;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
 
 .empty-state h3 {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--text-secondary);
   margin-bottom: 4px;
 }
@@ -662,11 +684,11 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .telemetry-device-info h2 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -679,10 +701,10 @@ html, body {
 .telemetry-status {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
+  gap: 6px;
+  padding: 5px 14px;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   border: 1px solid;
   text-transform: uppercase;
@@ -690,7 +712,7 @@ html, body {
 }
 
 .status-pulse {
-  width: 8px; height: 8px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   animation: pulse 1.5s ease infinite;
 }
@@ -698,15 +720,15 @@ html, body {
 .gauges-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .gauge-card {
   background: var(--bg-primary);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
-  padding: 16px;
+  padding: 14px;
   text-align: center;
   transition: var(--transition);
 }
@@ -714,30 +736,30 @@ html, body {
 .gauge-card:hover { border-color: var(--border-light); }
 
 .gauge-label {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-muted);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .gauge-value {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   line-height: 1;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   transition: color 0.3s ease;
 }
 
 .gauge-unit {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .gauge-bar-track {
-  height: 4px;
+  height: 3px;
   background: var(--bg-deep);
   border-radius: 2px;
   overflow: hidden;
@@ -760,38 +782,41 @@ html, body {
 .telemetry-extra {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 10px;
 }
 
 .info-card {
   background: var(--bg-primary);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sm);
-  padding: 12px;
+  padding: 10px 12px;
 }
 
 .info-label {
   display: block;
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .info-value {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-primary);
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* ---------------------------------------------------------------
    Alerts Panel
-   ═══════════════════════════════════════════════════════════ */
+   --------------------------------------------------------------- */
 .alerts-panel,
 .workorders-panel {
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -801,17 +826,17 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   flex-shrink: 0;
 }
 
 .panel-header h3 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
 }
 
 .panel-count {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-muted);
   background: var(--bg-primary);
   padding: 2px 10px;
@@ -825,7 +850,7 @@ html, body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .empty-list {
@@ -833,12 +858,16 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 32px;
+  padding: 28px;
   color: var(--text-muted);
   font-size: 13px;
+  gap: 8px;
 }
 
-.empty-list span { font-size: 32px; margin-bottom: 8px; }
+.empty-list-icon {
+  opacity: 0.4;
+  color: var(--text-muted);
+}
 
 .alert-item {
   display: flex;
@@ -859,7 +888,7 @@ html, body {
 
 .alert-content {
   flex: 1;
-  padding: 10px 12px;
+  padding: 8px 10px;
 }
 
 .alert-top {
@@ -876,10 +905,10 @@ html, body {
 }
 
 .alert-badge {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   padding: 2px 6px;
-  border-radius: 4px;
+  border-radius: 3px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -897,7 +926,7 @@ html, body {
 .alert-message {
   font-size: 12px;
   color: var(--text-secondary);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   line-height: 1.4;
 }
 
@@ -938,14 +967,14 @@ html, body {
   background: var(--status-ok-bg);
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* ---------------------------------------------------------------
    Work Orders Panel
-   ═══════════════════════════════════════════════════════════ */
+   --------------------------------------------------------------- */
 .wo-item {
   background: var(--bg-primary);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
-  padding: 14px;
+  padding: 12px;
   transition: var(--transition);
 }
 
@@ -955,14 +984,20 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  gap: 8px;
 }
 
+.wo-device { min-width: 0; }
+
 .wo-device-name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-primary);
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .wo-device-vid {
@@ -970,14 +1005,18 @@ html, body {
   color: var(--text-muted);
 }
 
-.wo-badges { display: flex; gap: 6px; }
+.wo-badges {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
 
 .wo-priority,
 .wo-status {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 4px;
+  padding: 2px 6px;
+  border-radius: 3px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -985,7 +1024,7 @@ html, body {
 .wo-description {
   font-size: 12px;
   color: var(--text-secondary);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   line-height: 1.4;
 }
 
@@ -994,7 +1033,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 0;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -1022,7 +1061,7 @@ html, body {
 }
 
 .wo-step-dot {
-  width: 12px; height: 12px;
+  width: 10px; height: 10px;
   border-radius: 50%;
   position: relative;
   z-index: 1;
@@ -1048,18 +1087,18 @@ html, body {
 .wo-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
 .wo-technician {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-secondary);
   font-weight: 500;
 }
 
 .btn-wo {
-  padding: 5px 12px;
+  padding: 4px 10px;
   border: 1px solid;
   border-radius: var(--radius-sm);
   font-size: 11px;
@@ -1127,9 +1166,9 @@ html, body {
   margin-left: auto;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   Responsive (tablets)
-   ═══════════════════════════════════════════════════════════ */
+/* ---------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------- */
 @media (max-width: 1200px) {
   .gauges-grid { grid-template-columns: repeat(2, 1fr); }
   .bottom-panels { grid-template-columns: 1fr; }

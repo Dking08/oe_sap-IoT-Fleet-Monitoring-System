@@ -1,5 +1,5 @@
 /**
- * Telemetry Panel — Live vehicle metrics display
+ * Telemetry Panel - Live vehicle metrics display
  * Shows gauges for speed, fuel, engine temp, battery, GPS, odometer
  */
 import { Device, TelemetryData } from '../types';
@@ -49,7 +49,13 @@ export default function TelemetryPanel({ device, telemetry }: TelemetryPanelProp
     return (
       <div className="telemetry-panel empty-panel">
         <div className="empty-state">
-          <span className="empty-icon">📡</span>
+          <svg className="empty-state-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="2" />
+            <path d="M16.24 7.76a6 6 0 010 8.49" />
+            <path d="M19.07 4.93a10 10 0 010 14.14" />
+            <path d="M7.76 16.24a6 6 0 010-8.49" />
+            <path d="M4.93 19.07a10 10 0 010-14.14" />
+          </svg>
           <h3>Select a Vehicle</h3>
           <p>Click on a vehicle in the sidebar to view live telemetry data</p>
         </div>
@@ -74,7 +80,7 @@ export default function TelemetryPanel({ device, telemetry }: TelemetryPanelProp
       <div className="telemetry-header">
         <div className="telemetry-device-info">
           <h2>{device.name}</h2>
-          <span className="device-vid-tag">{device.vehicle_id} • {device.type}</span>
+          <span className="device-vid-tag">{device.vehicle_id} &middot; {device.type}</span>
         </div>
         <div className="telemetry-status" style={{ backgroundColor: statusColors[device.status] + '22', color: statusColors[device.status], borderColor: statusColors[device.status] }}>
           <span className="status-pulse" style={{ backgroundColor: statusColors[device.status] }} />
@@ -91,15 +97,15 @@ export default function TelemetryPanel({ device, telemetry }: TelemetryPanelProp
 
       <div className="telemetry-extra">
         <div className="info-card">
-          <span className="info-label">📍 GPS Coordinates</span>
+          <span className="info-label">GPS Coordinates</span>
           <span className="info-value">{lat.toFixed(5)}, {lon.toFixed(5)}</span>
         </div>
         <div className="info-card">
-          <span className="info-label">🛣️ Odometer</span>
+          <span className="info-label">Odometer</span>
           <span className="info-value">{odometer.toLocaleString()} km</span>
         </div>
         <div className="info-card">
-          <span className="info-label">🕐 Last Seen</span>
+          <span className="info-label">Last Seen</span>
           <span className="info-value">
             {device.last_seen ? new Date(device.last_seen).toLocaleTimeString() : 'Never'}
           </span>

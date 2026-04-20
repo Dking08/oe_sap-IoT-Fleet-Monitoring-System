@@ -1,7 +1,7 @@
 /**
- * Work Orders Panel — Maintenance Workflow Management
+ * Work Orders Panel - Maintenance Workflow Management
  * Implements the SAP Workflow approval flow UI:
- * Created → Approved → Assigned → InProgress → Completed
+ * Created -> Approved -> Assigned -> InProgress -> Completed
  */
 import { useState, useEffect } from 'react';
 import { WorkOrder } from '../types';
@@ -68,14 +68,19 @@ export default function WorkOrdersPanel({ workOrders, userRole, userId, onRefres
   return (
     <div className="workorders-panel">
       <div className="panel-header">
-        <h3>🔧 Maintenance Work Orders</h3>
+        <h3>Maintenance Orders</h3>
         <span className="panel-count">{workOrders.filter(w => w.status !== 'Completed').length} active</span>
       </div>
 
       <div className="workorders-list">
         {workOrders.length === 0 ? (
           <div className="empty-list">
-            <span>📋</span>
+            <svg className="empty-list-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
             <p>No work orders yet</p>
           </div>
         ) : (
@@ -116,12 +121,12 @@ export default function WorkOrdersPanel({ workOrders, userRole, userId, onRefres
               {/* Action Buttons based on role and current status */}
               <div className="wo-actions">
                 {wo.technician_name && (
-                  <span className="wo-technician">👷 {wo.technician_name}</span>
+                  <span className="wo-technician">Assigned: {wo.technician_name}</span>
                 )}
 
                 {wo.status === 'Created' && userRole === 'Admin' && (
                   <button className="btn-wo btn-approve" onClick={() => handleApprove(wo.id)}>
-                    ✓ Approve
+                    Approve
                   </button>
                 )}
 
@@ -145,18 +150,18 @@ export default function WorkOrdersPanel({ workOrders, userRole, userId, onRefres
 
                 {wo.status === 'Assigned' && (userRole === 'Technician' || userRole === 'Admin') && (
                   <button className="btn-wo btn-start" onClick={() => handleStart(wo.id)}>
-                    ▶ Start Work
+                    Start Work
                   </button>
                 )}
 
                 {(wo.status === 'Assigned' || wo.status === 'InProgress') && (userRole === 'Technician' || userRole === 'Admin') && (
                   <button className="btn-wo btn-complete" onClick={() => handleComplete(wo.id)}>
-                    ✓ Complete
+                    Complete
                   </button>
                 )}
 
                 {wo.resolution_notes && (
-                  <span className="wo-notes">📝 {wo.resolution_notes}</span>
+                  <span className="wo-notes">Note: {wo.resolution_notes}</span>
                 )}
 
                 <span className="wo-time">{formatTime(wo.created_at)}</span>

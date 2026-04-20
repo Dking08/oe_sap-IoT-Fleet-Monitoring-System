@@ -1,5 +1,5 @@
 /**
- * Alerts Panel — Displays threshold breach alerts
+ * Alerts Panel - Displays threshold breach alerts
  */
 import { Alert } from '../types';
 import { api } from '../services/api';
@@ -29,23 +29,26 @@ export default function AlertsPanel({ alerts, selectedDeviceId }: AlertsPanelPro
   };
 
   const metricLabels: Record<string, string> = {
-    engine_temp: '🌡️ Engine Temp',
-    speed: '⚡ Speed',
-    fuel_level: '⛽ Fuel Level',
-    battery_voltage: '🔋 Battery',
+    engine_temp: 'Engine Temp',
+    speed: 'Speed',
+    fuel_level: 'Fuel Level',
+    battery_voltage: 'Battery',
   };
 
   return (
     <div className="alerts-panel">
       <div className="panel-header">
-        <h3>🚨 Active Alerts</h3>
+        <h3>Active Alerts</h3>
         <span className="panel-count">{filtered.length}</span>
       </div>
 
       <div className="alerts-list">
         {displayed.length === 0 ? (
           <div className="empty-list">
-            <span>✅</span>
+            <svg className="empty-list-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 12l2 2 4-4" />
+              <circle cx="12" cy="12" r="10" />
+            </svg>
             <p>No alerts{selectedDeviceId ? ' for this vehicle' : ''}</p>
           </div>
         ) : (
@@ -71,7 +74,7 @@ export default function AlertsPanel({ alerts, selectedDeviceId }: AlertsPanelPro
                       className="btn-ack"
                       onClick={() => handleAcknowledge(alert.id)}
                     >
-                      ✓ Acknowledge
+                      Acknowledge
                     </button>
                   )}
                 </div>

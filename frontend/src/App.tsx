@@ -1,6 +1,6 @@
 /**
- * App Component — Root of the IoT Fleet Monitoring Dashboard
- * Handles auth state and view switching (Login ↔ Dashboard)
+ * App Component - Root of the IoT Fleet Monitoring Dashboard
+ * Handles auth state and view switching (Login / Dashboard)
  */
 import { useState, useEffect, useCallback } from 'react';
 import { User, Device, TelemetryData, Alert, WorkOrder, WSMessage, SimulationStatus } from './types';

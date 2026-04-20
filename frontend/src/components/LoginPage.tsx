@@ -1,5 +1,5 @@
 /**
- * Login Page — XSUAA Authentication Simulation
+ * Login Page - XSUAA Authentication Simulation
  */
 import { useState } from 'react';
 
@@ -58,8 +58,8 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
             </svg>
           </div>
           <h1>SAP BTP Fleet Monitor</h1>
-          <p className="login-subtitle">IoT Dashboard — XSUAA Authentication</p>
-          <p className="login-credit">Dastageer — 23053275 | OE — SAP_BTP</p>
+          <p className="login-subtitle">IoT Dashboard &mdash; XSUAA Authentication</p>
+          <p className="login-credit">Dastageer &mdash; 23053275 | OE &mdash; SAP_BTP</p>
         </div>
 
         <form onSubmit={handleSubmit} className="login-form">
@@ -99,13 +99,24 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           <p className="quick-login-label">Quick Login (Demo)</p>
           <div className="quick-login-buttons">
             <button onClick={() => quickLogin('admin', 'admin123')} className="btn-quick admin">
-              <span className="role-icon">👑</span> Admin
+              <svg className="role-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              Admin
             </button>
             <button onClick={() => quickLogin('operator', 'operator123')} className="btn-quick operator">
-              <span className="role-icon">📡</span> Operator
+              <svg className="role-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              Operator
             </button>
             <button onClick={() => quickLogin('technician', 'tech123')} className="btn-quick technician">
-              <span className="role-icon">🔧</span> Technician
+              <svg className="role-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+              </svg>
+              Technician
             </button>
           </div>
         </div>
